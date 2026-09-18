@@ -56,6 +56,15 @@ Used to calculate threat metrics, create custom indicators, and assign risk tier
 
 ---
 
+## 🎨 6. Presentation Formatting & Data Optimization
+Use these commands to accelerate search processing speeds and format report columns for corporate review.
+
+- `index=linux_secure` — **Optimization Baseline:** Replaces the expensive `index=*` wildcard filter with a target database bucket, cutting down processing memory lag by up to 90%.
+- `| rename attacker_ip as "Malicious Infrastructure IP"` — Dynamically overwrites ugly system variable tags with clean, user-friendly table headers.
+- `| table "Column 1", "Column 2"` — Strips away all background log metadata, outputting only the precise columns specified in the exact sequence requested.
+
+---
+
 ## 🏁 Investigation Workflow Checklist
 When responding to a network authentication anomaly:
 1. **Scope the Environment:** Use `index=* sourcetype=secure-2` to view raw system access logs.
