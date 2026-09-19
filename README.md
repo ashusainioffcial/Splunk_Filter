@@ -65,6 +65,15 @@ Use these commands to accelerate search processing speeds and format report colu
 
 ---
 
+## 🏗️ 7. Enterprise Splunk Data Pipeline Architecture
+Reference architecture rules for large-scale corporate logging topology design.
+
+- **Universal Forwarder (UF):** Lightweight agent deployed directly on host endpoints. Monitored logs are streamed natively over **Port 9997 (TCP)** with minimal processing footprint.
+- **Heavy Forwarder (HF):** Dedicated mid-tier parsing routing instance used to filter data vectors and drop junk background noise before transmission.
+- **Indexer / Search Head:** The core analytical database cluster tier that compresses incoming traffic onto disks and drives the web UI dashboard portals.
+
+---
+
 ## 🏁 Investigation Workflow Checklist
 When responding to a network authentication anomaly:
 1. **Scope the Environment:** Use `index=* sourcetype=secure-2` to view raw system access logs.
