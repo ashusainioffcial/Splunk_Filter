@@ -72,6 +72,23 @@ Reference architecture rules for large-scale corporate logging topology design.
 - **Heavy Forwarder (HF):** Dedicated mid-tier parsing routing instance used to filter data vectors and drop junk background noise before transmission.
 - **Indexer / Search Head:** The core analytical database cluster tier that compresses incoming traffic onto disks and drives the web UI dashboard portals.
 
+
+---
+
+## 📂 8. Core Target Linux Logging Paths (Endpoint Source Architecture)
+The exact standard file coordinates watched by the Universal Forwarder agent to ingest operating system telemetry:
+- `/var/log/auth.log` (or `/var/log/secure`) — Tracks all infrastructure authentication anomalies, credential checks, and active brute-force vectors.
+- `/var/log/syslog` (or `/var/log/messages`) — Tracks structural operating system warnings, core daemon states, and kernel alerts.
+- `/var/log/apache2/access.log` (or `/var/log/nginx/access.log`) — Tracks incoming external web traffic records and HTTP server error logs (404/500 codes).
+
+---
+
+## 🎛️ 9. Operational Search Optimization Modes
+Adjusting the backend processing metrics of the Splunk engine to balance velocity and deep analysis:
+- **⚡ Fast Mode:** Suppresses all discovery fields except explicitly requested parameters. Maximum processing velocity, best used for high-stress triage (e.g., parsing 50M+ events during a live DDoS incident).
+- **🧠 Smart Mode (Default):** Dynamically toggles processing logic based on query syntax inputs. Evaluates aggregation parameters vs. event reporting requirements automatically.
+- **🔬 Verbose Mode:** Pulls raw log text streams combined with full background structural metadata. Maximum analysis depth, best used for deep post-incident forensic validation sweeps.
+
 ---
 
 ## 🏁 Investigation Workflow Checklist
