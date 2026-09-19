@@ -91,6 +91,21 @@ Adjusting the backend processing metrics of the Splunk engine to balance velocit
 
 ---
 
+## 🕒 10. Linux Task Automation (The Hacker's Cron Architecture)
+Decoding adversary scheduling footprints used to trigger automated botnet attack vectors:
+- Crontab Format: `[Min] [Hour] [DayOfMonth] [Month] [DayOfWeek] [Command]`
+- `0 22 * * * python3 /opt/malware/brute_forcer.py` — The precise cron-job footprint responsible for triggering the daily 10:00 PM brute-force velocity spike anomaly detected via time-chart analytics.
+
+---
+
+## 🚨 11. Real-Time SIEM Alert Trigger Pipelines
+Engineering proactive monitoring alert thresholds to minimize manual triage strain inside the SOC:
+- **Baseline Query:** `index=linux_secure sourcetype=secure-2 "Failed password" | stats count by src_ip`
+- **Condition Metric:** Real-time stream filtering set to evaluate if `count > 50` within a 60-second operational window.
+- **Triage Action Handlers:** Deploys simultaneous high-priority security email notifications to the operations desk and transmits outbound Webhook JSON tokens to trigger programmatic automated firewall blocking assets (`auto_blocker.py`).
+
+---
+
 ## 🏁 Investigation Workflow Checklist
 When responding to a network authentication anomaly:
 1. **Scope the Environment:** Use `index=* sourcetype=secure-2` to view raw system access logs.
